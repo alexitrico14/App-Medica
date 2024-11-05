@@ -1,17 +1,9 @@
-<!-- App.vue -->
-<template>
-  <div id="app">
-    <h1>Administrador de Citas Médicas</h1>
-    <FormularioCita @nueva-cita="agregarCita" />
-    <ListaCitas :citas="citas" @eliminar-cita="eliminarCita" />
-  </div>
-</template>
-
 <script>
-import FormularioCita from './components/FormularioCita.vue';
-import ListaCitas from './components/ListaCitas.vue';
+import FormularioCita from './FormularioCita.vue';
+import ListaCitas from './ListaCitas.vue';
 
 export default {
+  name: 'App',
   components: {
     FormularioCita,
     ListaCitas
@@ -32,13 +24,26 @@ export default {
 };
 </script>
 
+<template>
+  <div id="app">
+    <h1>Administrador de Citas Médicas</h1>
+    <FormularioCita @nueva-cita="agregarCita" />
+    <ListaCitas :citas="citas" @eliminar-cita="eliminarCita" />
+  </div>
+</template>
+
 <style scoped>
 #app {
   font-family: Arial, sans-serif;
   max-width: 600px;
   margin: 0 auto;
+  padding: 20px;
 }
+
 h1 {
   text-align: center;
+  color: #007bff;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 </style>

@@ -1,4 +1,16 @@
-<!-- Cita.vue -->
+<script>
+export default {
+    props: ['cita'],
+    methods: {
+        getColor() {
+            if (this.cita.gravedad === 'Alta') return '#f8d7da';
+            if (this.cita.gravedad === 'Media') return '#fff3cd';
+            return '#d4edda';
+        }
+    }
+};
+</script>
+
 <template>
     <div :style="{ backgroundColor: getColor() }" class="card">
         <p><strong>Paciente:</strong> {{ cita.paciente }}</p>
@@ -6,35 +18,34 @@
         <p><strong>Hora:</strong> {{ cita.hora }}</p>
         <p><strong>Gravedad:</strong> {{ cita.gravedad }}</p>
         <p><strong>Motivo:</strong> {{ cita.motivo }}</p>
-        <button @click="$emit('eliminar-cita')">Eliminar</button>
+        <button @click="$emit('eliminar-cita')" class="btn-eliminar">Eliminar</button>
     </div>
 </template>
-
-<script>
-export default {
-    props: {
-        cita: Object
-    },
-    methods: {
-        getColor() {
-            switch (this.cita.gravedad) {
-                case 'Alta':
-                    return 'red';
-                case 'Media':
-                    return 'yellow';
-                default:
-                    return 'green';
-            }
-        }
-    }
-};
-</script>
 
 <style scoped>
 .card {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+.btn-eliminar {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
 }
 </style>
