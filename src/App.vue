@@ -1,6 +1,6 @@
 <script>
-import FormularioCita from './FormularioCita.vue';
-import ListaCitas from './ListaCitas.vue';
+import FormularioCita from './components/FormularioCita.vue';
+import ListaCitas from './components/ListaCitas.vue';
 
 export default {
   name: 'App',
